@@ -1,5 +1,5 @@
-ShellPhone
-Copyright (c) 2026 The ShellPhone Authors
+Handset
+Copyright (c) 2026 GEDPK3 LLC
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this project except in compliance with the License.
@@ -18,7 +18,7 @@ NOTE ON THIRD-PARTY COMPONENTS
 --------------------------------------------------------------------------------
 This application is distributed together with third-party free software,
 including QEMU (GNU GPL v2), the GNU C/GLib libraries (GNU LGPL), and others.
-The Apache-2.0 license above applies ONLY to the first-party ShellPhone code
+The Apache-2.0 license above applies ONLY to the first-party Handset code
 (the Swift/Objective-C application layer). The bundled third-party components
 retain their own licenses. See THIRD_PARTY.md for the full inventory and
 COMPLIANCE.md for how to obtain complete corresponding source code for the
@@ -26,7 +26,7 @@ GPL/LGPL components. See launch/APP_STORE_EXCEPTION.md for the additional distri
 permission that accompanies this application.
 
 The full text of each third-party license is bundled in the application at
-ShellPhone/Resources/licenses/ and is viewable in-app under
+Handset/Resources/licenses/ and is viewable in-app under
 "Settings -> Licenses & Source Code".
 
 ================================================================================
