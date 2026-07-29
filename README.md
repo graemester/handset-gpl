@@ -1,17 +1,17 @@
-# ShellPhone — corresponding source for GPL and LGPL components
+# Handset — corresponding source for GPL and LGPL components
 
-ShellPhone runs a real Linux virtual machine on an iPhone: QEMU compiled as a threaded
+Handset runs a real Linux virtual machine on an iPhone: QEMU compiled as a threaded
 interpreter, a purpose-built Linux kernel, and curated guest root filesystems, presented
 in a terminal. No jailbreak, no JIT, no writable-executable pages.
 
 **This repository exists to satisfy the GPL.** It holds the complete corresponding source
 and the scripts used to build the GPL-2.0 and LGPL-2.1 software distributed inside the
-ShellPhone application, together with the full licence texts and the third-party
+Handset application, together with the full licence texts and the third-party
 inventory. It is a compliance artifact, and it is meant to be genuinely usable as one —
 not a gesture toward one.
 
-If you maintain something ShellPhone depends on, the two sections most likely to matter to
-you are [What ShellPhone changed](#what-shellphone-changed-and-what-it-did-not) and
+If you maintain something Handset depends on, the two sections most likely to matter to
+you are [What Handset changed](#what-Handset-changed-and-what-it-did-not) and
 [If something here is wrong](#if-something-here-is-wrong).
 
 ---
@@ -20,7 +20,7 @@ you are [What ShellPhone changed](#what-shellphone-changed-and-what-it-did-not) 
 
 | | |
 |---|---|
-| ShellPhone app version | `0.1.0` |
+| Handset app version | `0.1.0` |
 | Tag | `v0.1.0-source` |
 
 Every shipped version of the application has a matching `vX.Y.Z-source` tag here.
@@ -35,10 +35,10 @@ today.
 This is the offer presented in the application, under **Settings → Licenses & Source
 Code**, and in the App Store listing:
 
-> ShellPhone includes QEMU, the Linux kernel, GNU GLib, and other free software. The
+> Handset includes QEMU, the Linux kernel, GNU GLib, and other free software. The
 > complete corresponding source code for the version you are running, together with the
 > scripts used to build it, is available at
-> **https://github.com/graemester/shellphone-gpl** — see the source tag matching this
+> **https://github.com/graemester/Handset-gpl** — see the source tag matching this
 > app's version.
 
 It is reproduced here so it can be checked against what is actually published rather than
@@ -46,22 +46,22 @@ taken on trust.
 
 ---
 
-## What ShellPhone changed, and what it did not
+## What Handset changed, and what it did not
 
-**ShellPhone makes no modifications to QEMU.** It consumes UTM's `v10.0.2-utm` release
+**Handset makes no modifications to QEMU.** It consumes UTM's `v10.0.2-utm` release
 unmodified. The `patches/` directory in this repository contains four patches applied to
 third-party sources during the cross-build, and **all four originate from the UTM
-project**, not from ShellPhone — see `patches/README.md`, which records their provenance
+project**, not from Handset — see `patches/README.md`, which records their provenance
 individually.
 
-This matters for anyone auditing the licence position: the delta ShellPhone contributes
+This matters for anyone auditing the licence position: the delta Handset contributes
 over its upstreams is the *build configuration* and the *packaging*, not changes to the
-software itself. What is genuinely ShellPhone's own work in this repository is the build
+software itself. What is genuinely Handset's own work in this repository is the build
 scripts, the kernel configuration, and the guest image recipes.
 
 ### Credit where it is load-bearing
 
-ShellPhone does not exist without two pieces of work by **osy** and the
+Handset does not exist without two pieces of work by **osy** and the
 [UTM project](https://github.com/utmapp/UTM):
 
 - **`tcg/aarch64-tcti`** — a threaded-interpreter TCG backend. iOS forbids
@@ -86,13 +86,13 @@ inside. The proportion of this product that other people wrote is not close.
 |---|---|
 | `THIRD_PARTY.md` | Every third-party component: exact version, licence, how it is linked, and where its upstream source lives. **Start here** — it is the authoritative inventory. |
 | `COMPLIANCE.md` | How this distribution is kept licence-compliant, release by release, including the reconciliation of GPL terms with App Store distribution. |
-| `APP_STORE_EXCEPTION.md` | An additional permission granted over ShellPhone's *own* first-party code, so that Apple's terms impose no barrier on the aggregate. |
+| `APP_STORE_EXCEPTION.md` | An additional permission granted over Handset's *own* first-party code, so that Apple's terms impose no barrier on the aggregate. |
 | `licenses/` | Full licence texts: GPL-2.0, LGPL-2.1, MIT, BSD-3-Clause, Apache-2.0. |
 | `build/build-qemu-ios.sh` | The script controlling QEMU's compilation for iOS, as required by GPLv2 §3. |
 | `patches/` | The four patches applied to third-party sources, with per-patch provenance. |
 | `kernel/config` | The exact kernel configuration the shipped `Image` was built from. |
 | `kernel/Image.sha256` | Checksum of the kernel binary in the shipped app, so a rebuild can be verified against it. |
-| `rootfs-build/` | Build recipes for the guest images ShellPhone distributes. |
+| `rootfs-build/` | Build recipes for the guest images Handset distributes. |
 | `vendor/` | Upstream source tarballs at the pinned versions, with `SHA256SUMS`. |
 | `MANIFEST.sha256` | Checksums of everything in this bundle. |
 
@@ -133,7 +133,7 @@ is the same one used to build the shipped kernel:
 It runs the build in an `alpine:3.21` container, downloads
 <https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.19.8.tar.xz> fresh, applies `kernel/config` via
 `make olddefconfig`, builds `Image`, then verifies the arm64 magic, the size, the options
-ShellPhone requires to boot, and prints the sha256 — which you can compare against
+Handset requires to boot, and prints the sha256 — which you can compare against
 `kernel/Image.sha256` to confirm you have reproduced the shipped binary exactly.
 
 Equivalent by hand, if you would rather not use Docker:
@@ -170,7 +170,7 @@ virtual machine with no physical hardware cannot use.
 
 Worth addressing directly rather than leaving you to wonder.
 
-ShellPhone's Swift and Objective-C application layer is not published. The reasoning:
+Handset's Swift and Objective-C application layer is not published. The reasoning:
 QEMU is used **unmodified** and loaded at **runtime** as a separate dynamic framework via
 `dlopen`, so the application aggregates and loads QEMU rather than being built from it.
 The first-party code is licensed Apache-2.0 — GPL-compatible — and
@@ -192,7 +192,7 @@ than for the first notice to arrive as a complaint.
 
 ## If something here is wrong
 
-If you maintain something ShellPhone uses and you find an attribution missing, a licence
+If you maintain something Handset uses and you find an attribution missing, a licence
 misstated, a source link broken, a version recorded inaccurately, or your project's name
 used in a way you dislike — **open an issue and it goes to the front of the queue**, ahead
 of features and ahead of releases.
@@ -214,7 +214,7 @@ repository.
 | GLib, libiconv, gettext runtime | LGPL-2.1 |
 | pixman, libslirp, libffi, zstd, libucontext | MIT / BSD-3-Clause |
 | Guest userlands | Mixed; each distribution's own terms |
-| ShellPhone's first-party code | Apache-2.0, plus the additional permission in `APP_STORE_EXCEPTION.md` |
+| Handset's first-party code | Apache-2.0, plus the additional permission in `APP_STORE_EXCEPTION.md` |
 
 `THIRD_PARTY.md` is authoritative and more precise than this table. Where they disagree,
 `THIRD_PARTY.md` is correct and this table needs fixing — please say so.
